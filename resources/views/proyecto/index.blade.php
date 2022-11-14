@@ -71,22 +71,24 @@
 										<th>Rut Profesor Correferente</th>
 										<th>Nombres Profesor Correferente</th>
 										<th>Apellidos Profesor Correferente</th>
+										<th>Correo Profesor Correferente</th>
 										<th>Nombre de Empresa</th>
-										<th>Tipo</th>
-										<th>Nuevo/antiguo</th>
-										<th>Asociación</th>
+										<th>¿Corresponde pago a prof. correferente?</th>
 										<th>Título del Proyecto</th>
-										<th>Área</th>
-										<th>Resumen</th>
+										<th>¿Individual o grupal?</th>
+										<th>Área afín 1</th>
+										<th>Área afín 2</th>
+										<th>Resumen de proyecto</th>
 										<th>Objetivo General</th>
-										<th>Objetivo Especifico</th>
+										<th>Objetivos Especificos</th>
 										<th>Financiamiento</th>
-										<th>Impacto Social</th>
+										<th>¿Impacto Social?</th>
 										<th>Lugar Impacto Social</th>
 										<th>Razón Impacto Social</th>
-										<th>Vinculación Empresa</th>
+										<th>¿Vinculación con Empresa?</th>
 										<th>Lugar Vinculación Empresa</th>
 										<th>Razón Vinculación Empresa</th>
+										<th>¿Apoyo lab. de máquinas?</th>
 										<th>Estado de Autorización</th>
 										<th>Estado de Reserva</th>
 										<th>Rut Alumno 1</th>
@@ -104,22 +106,23 @@
                                 <tbody>
                                     @foreach ($proyectos as $proyecto)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-											
+
+											<td>{{ $proyecto->id }}</td>
 											<td>{{ $proyecto->Semestre }}</td>
 											<td>{{ $proyecto->RutProfesorGuia }}</td>
 											<td>{{ $proyecto->NombresProfesorGuia }}</td>
-											<td>{{ $proyecto->ApellidosProfesorGuia }}</td>											
-											<td>{{ $proyecto->Correo }}</td>
+											<td>{{ $proyecto->ApellidosProfesorGuia }}</td>
+											<td>{{ $proyecto->CorreoProfesorGuia }}</td>
 											<td>{{ $proyecto->RutProfesorCorref }}</td>
 											<td>{{ $proyecto->NombresProfesorCorref }}</td>
 											<td>{{ $proyecto->ApellidosProfesorCorref }}</td>
+											<td>{{ $proyecto->CorreoProfesorCorref }}</td>
 											<td>{{ $proyecto->NombreEmpresa }}</td>
-											<td>{{ $proyecto->Tipo }}</td>
-											<td>{{ $proyecto->NuevoAntiguo }}</td>
-											<td>{{ $proyecto->Asociacion }}</td>
+											<td>{{ $proyecto->Pago }}</td>
 											<td>{{ $proyecto->TituloTema }}</td>
-											<td>{{ $proyecto->Area }}</td>
+											<td>{{ $proyecto->Tipo }}</td>
+											<td>{{ $proyecto->Area1 }}</td>
+											<td>{{ $proyecto->Area2 }}</td>
 											<td>{{ $proyecto->Resumen }}</td>
 											<td>{{ $proyecto->ObjetivoGeneral }}</td>
 											<td>{{ $proyecto->ObjetivoEspecifico }}</td>
@@ -130,6 +133,7 @@
 											<td>{{ $proyecto->VinculacionEmpresa }}</td>
 											<td>{{ $proyecto->LugarVE }}</td>
 											<td>{{ $proyecto->RazonVE }}</td>
+											<td>{{ $proyecto->Apoyo }}</td>
 											<td>{{ $proyecto->EstadoAutorizacion }}</td>
 											<td>{{ $proyecto->EstadoReserva }}</td>
 											<td>{{ $proyecto->RutAlumno1 }}</td>

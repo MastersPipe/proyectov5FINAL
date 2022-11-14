@@ -16,13 +16,13 @@ use Illuminate\Database\Eloquent\Model;
  * @property $RutProfesorCorref
  * @property $NombresProfesorCorref
  * @property $ApellidosProfesorCorref
+ * @property $CorreoProfesorCorref
  * @property $NombreEmpresa
  * @property $Pago
- * @property $Tipo
- * @property $NuevoAntiguo
- * @property $Asociacion
  * @property $TituloTema
- * @property $Area
+ * @property $Tipo
+ * @property $Area1
+ * @property $Area2
  * @property $Resumen
  * @property $ObjetivoGeneral
  * @property $ObjetivoEspecifico
@@ -33,6 +33,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $VinculacionEmpresa
  * @property $LugarVE
  * @property $RazonVE
+ * @property $Apoyo
  * @property $EstadoAutorizacion
  * @property $EstadoReserva
  * @property $RutAlumno1
@@ -59,23 +60,24 @@ class Proyecto extends Model
 		'RutProfesorCorref' => 'required',
 		'NombresProfesorCorref' => 'required',
 		'ApellidosProfesorCorref' => 'required',
+		'CorreoProfesorCorref' => 'required|email',
 		'NombreEmpresa' => 'required',
 		'Pago' => 'required',
-		'Tipo' => 'required',
-		'NuevoAntiguo' => 'required',
-		'Asociacion' => 'required',
 		'TituloTema' => 'required',
-		'Area' => 'required',
+		'Tipo' => 'required',
+		'Area1' => 'required',
+		//'Area2' => 'required',
 		'Resumen' => 'required',
 		'ObjetivoGeneral' => 'required',
 		'ObjetivoEspecifico' => 'required',
 		'Financiamiento' => 'required',
 		'ImpactoSocial' => 'required',
-		'LugarIS' => 'required',
-		'RazonIS' => 'required',
+		//'LugarIS' => 'required',
+		//'RazonIS' => 'required',
 		'VinculacionEmpresa' => 'required',
-		'LugarVE' => 'required',
-		'RazonVE' => 'required',
+		//'LugarVE' => 'required',
+		//'RazonVE' => 'required',
+		'Apoyo' => 'required',
 		//'EstadoAutorizacion' => 'required',
 		//'EstadoReserva' => 'required',
 		//'RutAlumno1' => 'required',
@@ -93,7 +95,7 @@ class Proyecto extends Model
      *
      * @var array
      */
-    protected $fillable = ['Semestre','RutProfesorGuia','NombresProfesorGuia','ApellidosProfesorGuia','CorreoProfesorGuia','RutProfesorCorref','NombresProfesorCorref','ApellidosProfesorCorref','NombreEmpresa','Pago','Tipo','NuevoAntiguo','Asociacion','TituloTema','Area','Resumen','ObjetivoGeneral','ObjetivoEspecifico','Financiamiento','ImpactoSocial','LugarIS','RazonIS','VinculacionEmpresa','LugarVE','RazonVE','EstadoAutorizacion','EstadoReserva','RutAlumno1','NombreAlumno1','CarreraAlumno1','RutAlumno2','NombreAlumno2','CarreraAlumno2'];
+    protected $fillable = ['Semestre','RutProfesorGuia','NombresProfesorGuia','ApellidosProfesorGuia','CorreoProfesorGuia','RutProfesorCorref','NombresProfesorCorref','ApellidosProfesorCorref','CorreoProfesorCorref','NombreEmpresa','Pago','TituloTema','Tipo','Area1','Area2','Resumen','ObjetivoGeneral','ObjetivoEspecifico','Financiamiento','ImpactoSocial','LugarIS','RazonIS','VinculacionEmpresa','LugarVE','RazonVE','Apoyo','EstadoAutorizacion','EstadoReserva','RutAlumno1','NombreAlumno1','CarreraAlumno1','RutAlumno2','NombreAlumno2','CarreraAlumno2'];
 
 
 

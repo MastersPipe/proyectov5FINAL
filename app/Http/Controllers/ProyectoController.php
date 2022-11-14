@@ -203,7 +203,7 @@ class ProyectoController extends Controller
 
         $proyecto->update($request->all());
 
-        return redirect()->route('proyectos.docente_index')
+        return redirect()->route('proyecto.docente_index')
             ->with('success', 'Datos modificados con éxito.');
     }
 }

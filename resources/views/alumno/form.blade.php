@@ -1,6 +1,12 @@
 <div class="box box-info padding-1">
     <div class="box-body"> 
-        
+        <input type="hidden" id="A" value="{{$alumno->Semestre}}" >
+        <input type="hidden" id="B" value="{{$alumno->EstadoPractica}}" >
+        <input type="hidden" id="C" value="{{$alumno->DuracionPractica}}" >
+        <input type="hidden" id="D" value="{{$alumno->Malla}}" >
+        <input type="hidden" id="E" value="{{$alumno->EstadoAutorizacion}}" >
+        <input type="hidden" id="F" value="{{$alumno->EstadoInscripcion}}" >
+
         <div class="form-group">
             {{ Form::label('Semestre Actual') }} <br>
             <select name="Semestre" id="Semestre">
@@ -158,3 +164,30 @@
         <br><button type="submit" class="btn btn-primary">Guardar</button>
     </div>
 </div>
+<script>
+    
+    A = document.getElementById('A');
+    var select = document.querySelector('#Semestre');
+    select.value = A.value;
+
+    B = document.getElementById('B');
+    var select = document.querySelector('#EstadoPractica');
+    select.value = B.value;
+
+    C = document.getElementById('C');
+    var select = document.querySelector('#DuracionPractica');
+    select.value = C.value;
+
+    D = document.getElementById('D');
+    var select = document.querySelector('#Malla');
+    select.value = D.value;
+
+    E = document.getElementById('E');
+    var select = document.querySelector('#EstadoAutorizacion');
+    select.value = E.value;
+
+    F = document.getElementById('F');
+    var select = document.querySelector('#EstadoInscripcion');
+    select.value = F.value;
+
+</script>
