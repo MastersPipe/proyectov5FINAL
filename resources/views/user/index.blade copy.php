@@ -4,21 +4,6 @@
     Usuario
 @endsection
 
-@php
-dump($users);
-$data = [];
-foreach ($users as $user) {
-    array_push($data, $user);
-}
-dump($data);
-$collection = collect($data);
-
-$counted = $collection->countBy('role');
-dump($counted);
-
-echo ($counted["Alumno"]);
-
-@endphp
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -43,9 +28,7 @@ echo ($counted["Alumno"]);
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-                        <div class="box-body">
-                            <th>Este mensaje me muestra el total de alumnos: {{($counted["Alumno"]); }}</th>
-                        </div>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
@@ -94,3 +77,22 @@ echo ($counted["Alumno"]);
     
 @endsection
 
+@php
+    //dump($users);
+    $collection = collect($users);
+    dump($collection);
+    $total = $collection->count();
+
+
+    //$filtered = $collection->filter(function ($item) {
+    //return $item['role'];
+    //});
+    $element = $collection->countBy(['role']);
+    //$element = $collection->countBy('role');  
+    $element->all();
+    //$filtered->all();
+
+    dump($total);
+    //dump($filtered);
+    dump($element);
+@endphp

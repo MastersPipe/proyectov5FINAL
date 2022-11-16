@@ -4,26 +4,6 @@
     Proyecto
 @endsection
 
-
-@php
-dump($proyectos);
-$data = [];
-foreach ($proyectos as $proyecto) {
-    array_push($data, $proyecto);
-}
-dump($data);
-$collection = collect($data);
-
-$counted1 = $collection->countBy('EstadoAutorizacion');
-$counted2 = $collection->countBy('EstadoReserva');
-
-dump($counted1);
-dump($counted2);
-
-//echo ($counted["Alumno"]);
-
-@endphp
-
 @section('content')
 <div class="container">
 	<div class="row justify-content-center">

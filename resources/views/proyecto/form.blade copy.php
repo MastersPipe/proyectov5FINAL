@@ -103,9 +103,9 @@
                 </select>
                 {!! $errors->first('Tipo', '<div class="invalid-feedback">:message</div>') !!}
             </div>
-            <div class="form-group" id="selectdiv1">
+            <div class="form-group">
                 {{ Form::label('Área afín (seleccione las áreas relacionadas con su proyecto, máximo 2)') }} <br>
-                <select name="Area1" id="Area1" style="display: inline;" onchange="leerOpcion(this.value, 1)">
+                <select name="Area1" id="Area1">
                 <option value="Redes de Computadores">Redes de Computadores</option>
                 <option value="Telecomunicaciones">Telecomunicaciones</option>
                 <option value="Automatización y Control">Automatización y Control</option>
@@ -118,16 +118,9 @@
                 </select>
                 {!! $errors->first('Area1', '<div class="invalid-feedback">:message</div>') !!}
             </div>
-
-            <div class="form-group" style="display: none;" id="divselecttext1">
-                {{ Form::label('Ingrese Otro') }}
-                {{ Form::text('AreaX', $proyecto->Area1, ['class' => 'form-control' . ($errors->has('Area1') ? ' is-invalid' : ''), 'placeholder' => '', 'id'=>'inputArea1']) }}
-                {!! $errors->first('Area1', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-
             <div class="form-group">
                 {{ Form::label('Área afín N°2 (si aplica)') }} <br>
-                <select name="Area2" id="Area2" style="display: inline;" onchange="leerOpcion(this.value, 2)">
+                <select name="Area2" id="Area2">
                 <option value="Redes de Computadores">Redes de Computadores</option>
                 <option value="Telecomunicaciones">Telecomunicaciones</option>
                 <option value="Automatización y Control">Automatización y Control</option>
@@ -141,13 +134,6 @@
                 </select>
                 {!! $errors->first('Area2', '<div class="invalid-feedback">:message</div>') !!}
             </div>
-
-            <div class="form-group" style="display: none;" id="divselecttext2">
-                {{ Form::label('Ingrese Otro') }}
-                {{ Form::text('AreaXX', $proyecto->Area2, ['class' => 'form-control' . ($errors->has('Area2') ? ' is-invalid' : ''), 'placeholder' => '' , 'id'=>'inputArea2']) }}
-                {!! $errors->first('Area2', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-
             <div class="form-group">
                 {{ Form::label('Descripción resumida del proyecto') }}
                 {{ Form::text('Resumen', $proyecto->Resumen, ['class' => 'form-control' . ($errors->has('Resumen') ? ' is-invalid' : ''), 'placeholder' => '']) }}
@@ -307,27 +293,11 @@
 
     D = document.getElementById('D');
     var select = document.querySelector('#Area1');
-    var elementHtml = document.getElementById('Area1').outerHTML;
-    if(elementHtml.includes(D.value)){
-        select.value = D.value;
-    }else{
-        select.value = "Otro";
-        document.getElementById("divselecttext1").style.display = "inline";
-        document.getElementById("inputArea1").removeAttribute('name');
-        document.getElementById("inputArea1").setAttribute('name', 'Area1');
-    }
+    select.value = D.value;
 
     E = document.getElementById('E');
     var select = document.querySelector('#Area2');
-    var elementHtml = document.getElementById('Area2').outerHTML;
-    if(elementHtml.includes(E.value)){
-        select.value = E.value;
-    }else{
-        select.value = "Otro";
-        document.getElementById("divselecttext2").style.display = "inline";
-        document.getElementById("inputArea2").removeAttribute('name');
-        document.getElementById("inputArea2").setAttribute('name', 'Area2');
-    }
+    select.value = E.value;
 
     F = document.getElementById('F');
     var select = document.querySelector('#Financiamiento');
@@ -352,16 +322,4 @@
     K = document.getElementById('K');
     var select = document.querySelector('#EstadoReserva');
     select.value = K.value;
-</script>
-<script>
-    function leerOpcion(valor, select) {
-        if(valor == 'Otro'){
-            document.getElementById("divselecttext"+select).style.display = "inline";
-            document.getElementById("inputArea"+select).removeAttribute('name');
-            document.getElementById("inputArea"+select).setAttribute('name', 'Area'+select);
-        }else{
-            document.getElementById("divselecttext"+select).style.display = 'none';
-            document.getElementById("inputArea"+select).removeAttribute('name');
-        }
-    }
 </script>

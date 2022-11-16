@@ -7,6 +7,7 @@ use App\Exports\ProyectosExport;
 use App\Imports\ProyectosImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Collection;
 
 
 /**

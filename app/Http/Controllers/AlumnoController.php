@@ -8,6 +8,7 @@ use App\Imports\AlumnosImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Collection;
 /**
  * Class AlumnoController
  * @package App\Http\Controllers
