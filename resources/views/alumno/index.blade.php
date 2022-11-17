@@ -4,6 +4,23 @@
     Alumno
 @endsection
 
+@php
+//dump($alumnos);
+$data = [];
+foreach ($alumnos as $alumno) {
+    array_push($data, $alumno);
+}
+//dump($data);
+$collection = collect($data);
+$total = $collection->count();
+$counted1 = $collection->countBy('EstadoAutorizacion');
+$counted2 = $collection->countBy('EstadoInscripcion');
+//dump($total);
+//dump($counted1);
+//dump($counted2);
+//echo ($counted["Alumno"]);
+@endphp
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -32,12 +49,19 @@
             </div>
         </div>
     </div>
-</div>
+</div><br>
 
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
+                <div class="card">
+					<div class="card-header">Actualmente la base de datos registra un total de {{($total)}} proyectos, de los cuales:</div>
+					<div class="card-body">
+					<th>{{($counted1["AUTORIZADO"]) ?? '0'}} están autorizados para inscribir asignatura por la coordinación, {{($counted1["PENDIENTE"]) ?? '0'}} están pendientes por autorizar y {{($counted1["RECHAZADO"]) ?? '0'}} fueron rechazados.</th><br>
+					<th>{{($counted2["INSCRITO"]) ?? '0'}} están oficialmente, {{($counted2["PENDIENTE"]) ?? '0'}} están pendientes por inscribir en el navegador, y {{($counted2["NO ENVIADO"]) ?? '0'}} todavía no se envían para la inscripción.</th><br>
+					</div>
+				</div><br>
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">

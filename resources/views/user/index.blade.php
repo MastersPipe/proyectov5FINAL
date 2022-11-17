@@ -5,25 +5,31 @@
 @endsection
 
 @php
-dump($users);
+//dump($users);
 $data = [];
 foreach ($users as $user) {
     array_push($data, $user);
 }
-dump($data);
+//dump($data);
 $collection = collect($data);
-
+$total = $collection->count('role');
 $counted = $collection->countBy('role');
-dump($counted);
-
-echo ($counted["Alumno"]);
-
+//dump($counted);
+//echo ($counted["Alumno"]);
 @endphp
+
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
+                    <div class="card-body">
+                    <th>Actualmente la base de datos registra un total de {{($total)}} personas, de las cuales:</th><br>
+                    <th>{{($counted["Alumno"]) ?? '0'}} son alumnos, {{($counted["Docente"]) ?? '0'}} son docentes y {{($counted["Admin"]) ?? '0'}} son administradores.</th>
+                    </div>
+                </div><br>
+
+                <div class="card"> 
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
@@ -43,9 +49,6 @@ echo ($counted["Alumno"]);
                             <p>{{ $message }}</p>
                         </div>
                     @endif
-                        <div class="box-body">
-                            <th>Este mensaje me muestra el total de alumnos: {{($counted["Alumno"]); }}</th>
-                        </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">

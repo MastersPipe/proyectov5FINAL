@@ -4,24 +4,21 @@
     Proyecto
 @endsection
 
-
 @php
-dump($proyectos);
+//dump($proyectos);
 $data = [];
 foreach ($proyectos as $proyecto) {
     array_push($data, $proyecto);
 }
-dump($data);
+//dump($data);
 $collection = collect($data);
-
+$total = $collection->count();
 $counted1 = $collection->countBy('EstadoAutorizacion');
 $counted2 = $collection->countBy('EstadoReserva');
-
-dump($counted1);
-dump($counted2);
-
+//dump($total);
+//dump($counted1);
+//dump($counted2);
 //echo ($counted["Alumno"]);
-
 @endphp
 
 @section('content')
@@ -29,8 +26,8 @@ dump($counted2);
 	<div class="row justify-content-center">
 		<div class="col-sm-12">
 			<div class="card">
-				<div class="card-header">{{ __('Importar/Exportar archivos Excel') }}</div>
 
+				<div class="card-header">{{ __('Importar/Exportar archivos Excel') }}</div>
 				<div class="card-body">
 					@if (session('status'))
 						<div class="alert alert-success" role="alert">
@@ -53,9 +50,17 @@ dump($counted2);
 		</div>
 	</div>
 </div>
-    <div class="container-fluid">
+    <br><div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
+				<div class="card">
+					<div class="card-header">Actualmente la base de datos registra un total de {{($total)}} proyectos, de los cuales:</div>
+					<div class="card-body">
+					<th>{{($counted1["AUTORIZADO"]) ?? '0'}} están autorizados por la coordinación, {{($counted1["PENDIENTE"]) ?? '0'}} están pendientes por autorizar y {{($counted1["RECHAZADO"]) ?? '0'}} fueron rechazados.</th><br>
+					<th>{{($counted2["DISPONIBLE"]) ?? '0'}} están disponibles para que alumnos reserven, {{($counted2["RESERVADO"]) ?? '0'}} están reservados y en espera de confirmación, y {{($counted2["NO DISPONIBLE"]) ?? '0'}} ya fueron confirmados por ambas partes.</th><br>
+					</div>
+				</div><br>
+				
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
