@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -17,7 +16,6 @@ use Illuminate\Support\Collection;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -29,14 +27,12 @@ class User extends Authenticatable
         'email'=> 'required',
         'password'=> 'required',
     ];
-
     protected $fillable = [
         'role',
         'name',
         'email',
         'password',
     ];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -56,6 +52,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //esta sección permite al método Auth distinguir entre una lista de roles
     protected function type(): Attribute
     {
         return new Attribute(
@@ -63,7 +60,8 @@ class User extends Authenticatable
         );
 
     }
-
+    
+    //esta función permite encriptar las contraseñas ingresadas desde la sección "Usuarios"
     public function setPasswordAttribute($password)
     {   
         $this->attributes['password'] = bcrypt($password);

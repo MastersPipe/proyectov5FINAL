@@ -39,7 +39,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Alumno extends Model
 {
-    
+    //esta sección establece qué campos del formulario son obligatorios
     static $rules = [
 		'Semestre' => 'required',
 		'ApellidoPaterno' => 'required',
@@ -73,6 +73,7 @@ class Alumno extends Model
      *
      * @var array
      */
+	//esta sección establece qué campos del formulario son rellenables por el usuario
     protected $fillable = ['Semestre','ApellidoPaterno','ApellidoMaterno','Nombres','Rut','Correo','Telefono','EstadoPractica','DuracionPractica','SinPractica','CargaAcademica','Carrera','AñoIngreso','Malla','ClaveCurso','Paralelo','NombreCurso','TituloProyecto','ProfesorGuia','Correferente','Comentarios','EstadoAutorizacion','EstadoInscripcion'];
 
 

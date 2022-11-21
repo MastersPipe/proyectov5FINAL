@@ -15,6 +15,7 @@ use Illuminate\Support\Collection;
  */
 class AlumnoController extends Controller
 {
+//esta sección contiene las funciones asociadas al Administrador
     /**
      * Display a listing of the resource.
      *
@@ -111,7 +112,7 @@ class AlumnoController extends Controller
             ->with('success', 'Datos eliminados con éxito.');
     }
     
-
+//esta sección contiene las funciones de importar y exportar
     public function export() 
     {
         return Excel::download(new AlumnosExport, 'alumnos.xlsx');
@@ -125,7 +126,7 @@ class AlumnoController extends Controller
         return back() ->withStatus('Archivo subido con éxito');
     }
 
-
+//esta sección contiene las funciones asociadas al Alumno
         /**
      * Display a listing of the resource.
      *

@@ -12,6 +12,8 @@ class AlumnosImport implements ToModel
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+    //esta función detecta las columnas del archivo subido y las asocia a una variable en particular
+    //por eso debe seguirse un orden en el archivo a subir
     public function model(array $row)
     {
         return new Alumno([

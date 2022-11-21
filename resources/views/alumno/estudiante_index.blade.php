@@ -72,11 +72,11 @@
                                 <tbody>
                                     @foreach ($alumnos as $alumno)
                                         <tr>
+                                            @php
+                                            //este comando compara el correo de la sesión activa con la base de datos para filtrar resultados
+                                            @endphp
                                             @if ($alumno->Correo == Auth::user()->email)     
-                                            <?php
-                                           //dump($alumno);
-                                           //?>                                            
-
+                                      
                                             <a class="invisible">{{ $alumno->id }}</a>
 
                                             <td>{{ $alumno->Semestre }}</td>

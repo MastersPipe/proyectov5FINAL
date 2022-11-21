@@ -50,7 +50,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Proyecto extends Model
 {
-    
+    //esta sección establece qué campos del formulario son obligatorios
     static $rules = [
 		'Semestre' => 'required',
 		'RutProfesorGuia' => 'required',
@@ -95,6 +95,7 @@ class Proyecto extends Model
      *
      * @var array
      */
+	//esta sección establece qué campos del formulario son rellenables por el usuario
     protected $fillable = ['Semestre','RutProfesorGuia','NombresProfesorGuia','ApellidosProfesorGuia','CorreoProfesorGuia','RutProfesorCorref','NombresProfesorCorref','ApellidosProfesorCorref','CorreoProfesorCorref','NombreEmpresa','Pago','TituloTema','Tipo','Area1','Area2','Resumen','ObjetivoGeneral','ObjetivoEspecifico','Financiamiento','ImpactoSocial','LugarIS','RazonIS','VinculacionEmpresa','LugarVE','RazonVE','Apoyo','EstadoAutorizacion','EstadoReserva','RutAlumno1','NombreAlumno1','CarreraAlumno1','RutAlumno2','NombreAlumno2','CarreraAlumno2'];
 
 

@@ -16,6 +16,7 @@ use Illuminate\Support\Collection;
  */
 class ProyectoController extends Controller
 {
+//esta sección contiene las funciones asociadas al Administrador
     /**
      * Display a listing of the resource.
      *
@@ -112,6 +113,7 @@ class ProyectoController extends Controller
             ->with('success', 'Datos eliminados con éxito.');
     }
 
+//esta sección contiene las funciones de importar y exportar
     public function export() 
     {
         return Excel::download(new ProyectosExport, 'proyectos.xlsx');
@@ -125,6 +127,7 @@ class ProyectoController extends Controller
         return back() ->withStatus('Archivo subido con éxito');
     }
 
+//esta sección contiene las funciones asociadas al Docente
         /**
      * Display a listing of the resource.
      *
